@@ -1,0 +1,66 @@
+.topcontainer{
+  background:url("/Users/abhi/Documents/vCallProject/frontend/src/pages/backgroundMeeting.jpg");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+flex-direction: column;
+  
+}
+.navBarContainer nav{
+  color: white;
+    align-items: center;
+  justify-content: space-around;
+ display:flex;
+  background-color: rgb(22, 22, 36);
+  height: 55px;
+}
+.meetingtop{
+ flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 0;
+  
+}
+.cardofM{
+ display:flex;
+ justify-content: center;
+  height: 600px;
+  width: 800px;
+  padding: 20px;
+  background-color:rgba(245, 245, 245, 0.653);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+ /* align-content: space-evenly; */
+flex-direction: column;
+gap: 10px;
+justify-content: space-between;
+align-items: center;
+
+}
+.mupper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   flex-direction: column;
+}
+.fortextfield{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+ .navfirst {
+display: flex;
+justify-content: center;
+align-items: center;
+gap:30px;
+padding-right: 500px;
+ }
+ .meetingcode{
+  
+ }

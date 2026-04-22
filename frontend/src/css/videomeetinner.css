@@ -1,0 +1,72 @@
+.vcontainer {
+     height: 100vh;
+     position: relative;
+     background-color: rgb(30, 30, 30); 
+     overflow: hidden;
+   }
+   
+   .yourVideo {
+     position: absolute;
+    left: 2vh;
+     bottom: 10vh;         
+     height: 30vh;
+     width: auto;
+     border: 2px solid rgb(70, 68, 68);
+     border-radius: 20px;
+     z-index: 9;          
+  }
+   
+   .buttonContainer svg {
+     font-size: 3rem;
+   }
+   
+   .buttonContainer {
+     position: absolute;
+     width: 100vw;         
+     bottom: 1vh;
+     text-align: center;
+     z-index: 10;           
+   }
+   
+   .userConferenceVideo {
+     display: flex;
+     flex-wrap: wrap;        
+     justify-content: center;
+     align-items: center;    
+     height: 100vh;         
+     padding: 10px;
+     gap: 10px;
+   }
+   
+   .userConferenceVideo video {
+     width: auto;
+     min-width: 30vw;
+     height: 40vh;           
+     border-radius: 12px;    
+     object-fit: cover;      
+   }
+   .chatSection{
+  background-color:white;
+position:absolute;
+right: 0;
+height: 70vh;
+width: 30vw;
+border-radius: 10px;
+padding-inline: 20px;
+   }
+   .receiveChat{
+    height: 100%;
+     position: absolute;
+   }
+   .sendChat { 
+position: absolute;
+bottom: 2rem;
+} 
+.iconSend {
+left: 15rem;
+  position:absolute;
+transform: translateY(-50%);
+top: 2rem;
+z-index: 2;
+
+}

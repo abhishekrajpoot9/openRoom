@@ -1,0 +1,89 @@
+.maincontainer{
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+.card{
+
+     /* border: 2px solid black; */
+   /* border-radius:5 ; */
+   height: 620px;
+   width: 470px;
+   padding: 20px;
+   background-color: rgb(231, 231, 231);
+   border-radius: 10px;
+   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+ 
+}
+.card h1{
+  font-size: 50px;
+  margin-bottom: 40px;
+}
+.card p a {
+ color: black;
+font-size: 18px;
+}
+.card p {
+  
+padding-top: 40px;
+}
+.user input{
+  font-size: 25px;
+  size: 30px; 
+  border-radius: 5px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.user {
+  font-size: 25px;
+  margin-bottom: 10px;
+  
+}
+.name input{
+  font-size: 25px;
+  size: 30px; 
+  border-radius: 5px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.name{
+  font-size: 25px;
+  margin-bottom: 10px;
+  
+}
+.pass input{
+  font-size: 25px;
+  size: 30px;
+  border-radius: 5px;
+
+}
+.pass{
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+/* .button{
+  margin-top: 30px;
+  width: 73%;
+  border: 2px solid black;
+  background-color: blue;
+  padding-left: 85px;
+  border-radius: 20px ;
+} */
+.button button{
+font-size: 25px;
+  cursor: pointer;
+  margin-top: 30px;
+  width: 73%;
+  border: 2px solid black;
+  background-color: rgb(10, 10, 13);
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px ;
+color: antiquewhite;
+
+}
+
