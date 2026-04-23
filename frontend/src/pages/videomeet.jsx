@@ -17,10 +17,10 @@ import ChatIcon from '@mui/icons-material/Chat';
 import Box from '@mui/material/Box';
 import SendIcon from '@mui/icons-material/Send';
 import { useNavigate } from "react-router-dom";
-
+import server from '../enviroment';
 
 export default function Videomeet() {
-  const server_url = "http://localhost:8000";
+  const server_url = server;
 
   
   // ─── Refs ─────────────────────────────────────────────────────────────────

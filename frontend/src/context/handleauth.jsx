@@ -5,9 +5,10 @@ import React from "react";
 
 import axios, { HttpStatusCode } from "axios";
 import { useNavigate,Navigate } from "react-router-dom";
+import server from "../enviroment";
 export const Authcontext= createContext({});//authcontext store data globally
 const client=axios.create({
-    baseURL:"http://localhost:8000/users"
+    baseURL:`${server}/users`
 })
 export const Authprovider=({children})=>{
     
