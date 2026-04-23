@@ -78,7 +78,7 @@ navigate("/")}}>openRoom</h1>
         <div className="fortextfield">
          <div>
           <p><b>Create or Join Meeting</b></p>
-        <TextField onChange={e=>setMeetingCode(e.target.value)} id="outlined-basic" label="Outlined" variant="outlined" style={{width:400 ,}} />
+        <TextField onChange={e=>setMeetingCode(e.target.value)} id="outlined-basic"  variant="outlined" style={{width:400 ,}} />
          </div>
          <div>
          <Button onClick={handleJoinCall} variant="contained" >
