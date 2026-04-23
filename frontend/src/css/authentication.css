@@ -12,7 +12,7 @@
    height: 620px;
    width: 470px;
    padding: 20px;
-   background-color: rgb(231, 231, 231);
+   background-color: #fcfbf4;
    border-radius: 10px;
    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
  
@@ -83,7 +83,7 @@ font-size: 25px;
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 10px ;
-color: antiquewhite;
+color: #fcfbf4;
 
 }
 
