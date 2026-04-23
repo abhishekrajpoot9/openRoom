@@ -55,15 +55,10 @@ align-items: center;
     flex-direction: column;
     gap: 20px;
 }
-
-
  .navfirst {
 display: flex;
 justify-content: center;
 align-items: center;
 gap:30px;
 padding-right: 500px;
- }
- .meetingcode{
-  
  }
