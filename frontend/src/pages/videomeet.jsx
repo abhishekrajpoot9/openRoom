@@ -70,7 +70,14 @@ export default function Videomeet() {
   const [newMessages, setNewMessages] = useState(0);
 
   const peerConfigConnections = {
-    iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
+    iceServers: [
+      { urls: "stun:stun.l.google.com:19302" },
+      {
+        urls: "turn:openrelay.metered.ca:80",
+        username: "openrelayproject",
+        credential: "openrelayproject"
+      }
+    ]
   };
 
   const audioSilence = () => {
@@ -139,7 +146,9 @@ export default function Videomeet() {
     const reoffer = () => {
       for (let id in connections.current) {
         if (id === socketIdRef.current) continue;
-        connections.current[id].addStream(window.localStream);
+        window.localStream.getTracks().forEach(track => {
+          connections.current[id].addTrack(track, window.localStream);
+        });
         connections.current[id].createOffer().then(desc => {
           connections.current[id].setLocalDescription(desc).then(() => {
             socketRef.current.emit("signal", id, JSON.stringify({ sdp: connections.current[id].localDescription }));
