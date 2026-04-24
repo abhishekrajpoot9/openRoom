@@ -1,3 +1,4 @@
+
 import { useContext, useEffect, useState } from "react";
 import { Authcontext } from "../context/handleauth";
 import { useNavigate } from "react-router-dom";
@@ -16,8 +17,8 @@ const History = () => {
     useEffect(()=>{
         const fetchHistory=async()=>{
             try {
-                const history=await getHistoryOfUser();
-                setMeetings(history);
+              const history = await getHistoryOfUser();
+setMeetings(Array.isArray(history) ? history : []);
             } catch (error) {
               console.log(error);
             }
@@ -33,7 +34,7 @@ const History = () => {
     }
     return (
         <div>
-          <IconButton onClick={() => routeTo("/home")}>
+          <IconButton style={{color:"white"}} onClick={() => routeTo("/home")}>
             <HomeIcon />
           </IconButton>
       
@@ -59,4 +60,4 @@ const History = () => {
       );
 }
  
-export default History;
+export default History

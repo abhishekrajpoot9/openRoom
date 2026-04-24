@@ -1,4 +1,4 @@
-//here is one todo.
+
 import { createContext,useContext } from "react";
 
 import React from "react";
@@ -60,6 +60,7 @@ export const Authprovider=({children})=>{
     }
     const addToUserHistory=async(meetingCode)=>{
        try{
+       
         let request=await client.post("/add_to_activity",{
             token:localStorage.getItem("token"),
             meeting_code:meetingCode

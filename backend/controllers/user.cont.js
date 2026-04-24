@@ -35,7 +35,7 @@ const login = async (req, res) => {
 
     return res.status(StatusCodes.OK).json({ token,user:{
      name:user.name,
-     username:user.name 
+     username:user.username
     } });
   } catch (error) {
     return res
@@ -87,7 +87,10 @@ const getUserHistory=async (req,res)=>{
   const{token}=req.query;
   try{
     const user=await User.findOne({token:token});
+    if (!user) return res.status(401).json({ message: "Invalid token" });
+    console.log("user.username:", user.username); 
     const meetings=await Meeting.find({user_id:user.username})
+    console.log("meetings found:", meetings); 
     res.json(meetings)
   }catch(e){
     res.json({message:`something went wrong ${e}`})

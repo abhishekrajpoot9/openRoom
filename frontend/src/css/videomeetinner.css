@@ -1,72 +1,438 @@
-.vcontainer {
-     height: 100vh;
-     position: relative;
-     background-color: rgb(30, 30, 30); 
-     overflow: hidden;
-   }
-   
-   .yourVideo {
-     position: absolute;
-    left: 2vh;
-     bottom: 10vh;         
-     height: 30vh;
-     width: auto;
-     border: 2px solid rgb(70, 68, 68);
-     border-radius: 20px;
-     z-index: 9;          
-  }
-   
-   .buttonContainer svg {
-     font-size: 3rem;
-   }
-   
-   .buttonContainer {
-     position: absolute;
-     width: 100vw;         
-     bottom: 1vh;
-     text-align: center;
-     z-index: 10;           
-   }
-   
-   .userConferenceVideo {
-     display: flex;
-     flex-wrap: wrap;        
-     justify-content: center;
-     align-items: center;    
-     height: 100vh;         
-     padding: 10px;
-     gap: 10px;
-   }
-   
-   .userConferenceVideo video {
-     width: auto;
-     min-width: 30vw;
-     height: 40vh;           
-     border-radius: 12px;    
-     object-fit: cover;      
-   }
-   .chatSection{
-  background-color:white;
-position:absolute;
-right: 0;
-height: 70vh;
-width: 30vw;
-border-radius: 10px;
-padding-inline: 20px;
-   }
-   .receiveChat{
-    height: 100%;
-     position: absolute;
-   }
-   .sendChat { 
-position: absolute;
-bottom: 2rem;
-} 
-.iconSend {
-left: 15rem;
-  position:absolute;
-transform: translateY(-50%);
-top: 2rem;
-z-index: 2;
 
-}
+   :root {
+    --bar-height: 68px;
+    --gap: 6px;
+    --radius: 10px;
+    --bg:rgb(28, 30, 32);
+    --surface: #161b22;
+    --border: rgba(255,255,255,0.08);
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  
+  
+  .lobbyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 24px;
+    background: var(--bg);
+   
+  }
+  
+  .lobbyContainer h2 {
+    color: #fff;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    font-weight: 600;
+  }
+  
+  .lobbyContainer video {
+    width: min(340px, 88vw);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 14px;
+    background: #000;
+    border: 1px solid var(--border);
+  }
+  
+ 
+  .vcontainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;           
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  
+  .userConferenceVideo {
+    flex: 1;
+    min-height: 0;           
+    display: grid;
+    gap: var(--gap);
+    padding: var(--gap);
+    padding-bottom: calc(var(--bar-height) + var(--gap));
+   
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  
+  .userConferenceVideo .remoteVideoWrapper:only-child {
+    max-width: min(640px, 100%);
+    max-height: 70vh;
+    max-height: 70dvh;
+    margin: auto;
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+  
+  
+  .userConferenceVideo.p2 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+
+  .userConferenceVideo.p3 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .userConferenceVideo.p3 .remoteVideoWrapper:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+  
+ 
+  .userConferenceVideo.p4 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+
+  .userConferenceVideo.p5 {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .userConferenceVideo.p5 .remoteVideoWrapper:nth-child(4),
+  .userConferenceVideo.p5 .remoteVideoWrapper:nth-child(5) {
+    grid-column: span 1;
+  }
+  
+ 
+  .userConferenceVideo.p6 {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+ 
+  .userConferenceVideo.p7,
+  .userConferenceVideo.p8,
+  .userConferenceVideo.p9 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  
+  .userConferenceVideo.pmany {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(120px, 1fr);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    align-content: start;
+  }
+  
+  
+  .remoteVideoWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  
+  .remoteVideoWrapper video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+    display: block;
+  }
+  
+  
+  .yourVideo {
+    position: fixed;
+    bottom: calc(var(--bar-height) + 12px);
+    left: 12px;
+    width: clamp(120px, 28vw, 220px); 
+    
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 2px solid rgba(255,255,255,0.3);
+    background: #000;
+    z-index: 20;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    left: 12px;
+  }
+  
+  
+  .buttonContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--bar-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 2.5vw, 28px);
+    background: rgba(10, 12, 20, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 30;
+    padding: 0 20px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    border-top: 1px solid var(--border);
+  }
+  
+  .buttonContainer .MuiIconButton-root {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    transition: background 0.15s, transform 0.1s;
+  }
+  
+  .buttonContainer .MuiIconButton-root:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.08);
+  }
+  
+  .buttonContainer .MuiIconButton-root:active {
+    background: rgba(255,255,255,0.25);
+    transform: scale(0.95);
+  }
+  
+  
+  .chatSection {
+    position: fixed;
+    inset: 0;
+    bottom: var(--bar-height);
+    z-index: 25;
+    pointer-events: none;
+  }
+  
+  .receiveChat {
+    pointer-events: all;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: min(380px, 100vw);
+    height: min(540px, 65dvh);
+    height: min(540px, 65vh);
+    background: #fff;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 16px 12px;
+    box-shadow: 0 -6px 32px rgba(0,0,0,0.4);
+    overflow: hidden;
+  }
+  
+  .receiveChat h1 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+    flex-shrink: 0;
+  }
+  
+  .receiveChat hr {
+    margin: 10px 0 8px;
+    flex-shrink: 0;
+    border: none;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .chattingDisplay {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    min-height: 0;
+    padding-right: 4px;
+  }
+  
+  .chattingDisplay h2 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #6b7280;
+    margin-bottom: 2px;
+    margin-top: 8px;
+  }
+  
+  .chattingDisplay p {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: #1f2937;
+    word-break: break-word;
+  }
+  
+  .sendChat {
+    flex-shrink: 0;
+    padding-top: 10px;
+  }
+  
+  .textareacontainer {
+    position: relative;
+    width: 100%;
+  }
+  
+  .iconSend {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+  }
+  
+
+  @media (min-width: 1024px) {
+    :root { --bar-height: 72px; --gap: 8px; }
+  
+    .userConferenceVideo {
+      padding: var(--gap);
+      padding-bottom: calc(var(--bar-height) + var(--gap));
+    }
+  
+    
+    .receiveChat {
+      width: 340px;
+      height: calc(100dvh - var(--bar-height) - 16px);
+      height: calc(100vh - var(--bar-height) - 16px);
+      border-radius: 16px;
+      bottom: calc(var(--bar-height) + 8px);
+      right: 8px;
+    }
+  
+    .yourVideo {
+      width: 350px;
+      height: 250px;
+      bottom: calc(var(--bar-height) + 16px);
+      right: 360px;
+      
+    
+    }
+  
+    .userConferenceVideo.p2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  
+  @media (min-width: 600px) and (max-width: 1023px) {
+    .receiveChat {
+      width: 340px;
+      border-radius: 18px;
+      bottom: 8px;
+      right: 8px;
+    }
+  
+    .yourVideo { width: 130px; }
+  
+   
+    .userConferenceVideo.p2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  
+  @media (max-width: 599px) {
+    :root { --gap: 4px; }
+  
+    
+    .userConferenceVideo.p2 {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+  
+   
+    .userConferenceVideo.p3 {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+    }
+    .userConferenceVideo.p3 .remoteVideoWrapper:last-child {
+      grid-column: auto;
+      max-width: 100%;
+    }
+  
+ 
+    .userConferenceVideo.p4,
+    .userConferenceVideo.p5,
+    .userConferenceVideo.p6 {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .receiveChat {
+      width: 100vw;
+      right: 0;
+      border-radius: 20px 20px 0 0;
+    }
+  
+    .yourVideo {
+      width: 80px;
+      right: 8px;
+    }
+  }
+  
+  
+  @media (max-height: 500px) and (orientation: landscape) {
+    :root { --bar-height: 56px; }
+  
+    .userConferenceVideo {
+      grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr)) !important;
+      padding-bottom: calc(var(--bar-height) + 4px);
+    }
+  
+    .yourVideo {
+      width: 90px;
+      bottom: calc(var(--bar-height) + 8px);
+      right: 8px;
+    }
+  
+    .receiveChat {
+      width: min(300px, 50vw);
+      height: min(300px, 85dvh);
+      border-radius: 14px;
+      bottom: calc(var(--bar-height) + 8px);
+      right: 8px;
+    }
+  }
+  
+  
+  @media (max-width: 380px) {
+    .yourVideo { width: 70px; }
+    .buttonContainer { gap: 6px; }
+  }
+  
+  
+  @supports (padding-top: env(safe-area-inset-top)) {
+    .vcontainer {
+      padding-top: env(safe-area-inset-top);
+    }
+  
+    .buttonContainer {
+      height: calc(var(--bar-height) + env(safe-area-inset-bottom));
+      padding-bottom: calc(env(safe-area-inset-bottom) + 6px);
+    }
+  
+    .yourVideo {
+      bottom: calc(var(--bar-height) + env(safe-area-inset-bottom) + 12px);
+      left: 12px;
+    }
+  
+    .chatSection {
+      bottom: calc(var(--bar-height) + env(safe-area-inset-bottom));
+    }
+  }
